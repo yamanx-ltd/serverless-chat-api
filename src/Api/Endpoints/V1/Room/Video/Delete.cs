@@ -29,8 +29,7 @@ public class Delete : IEndpoint
             return Results.Forbid();
         }
 
-        room.VideoCallIsActive = false;
-        room.VideoCallAttender = new();
+        room.VideoCall.Attenders = new();
 
         await roomRepository.SaveRoomAsync(room, cancellationToken);
 

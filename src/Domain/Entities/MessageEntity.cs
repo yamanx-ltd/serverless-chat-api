@@ -14,11 +14,15 @@ namespace Domain.Entities
         
         [JsonPropertyName("parentId")] public string? ParentId { get; set; }
         [JsonPropertyName("senderId")] public string SenderId { get; set; } = default!;
-        [JsonPropertyName("body")] public string Body { get; set; } = default!;
+        [JsonPropertyName("body")] public string? Body { get; set; }
         [JsonPropertyName("createdAt")] public DateTime CreatedAt { get; set; }
         [JsonPropertyName("messageStatus")] public List<MessageStatusDataModel> MessageStatus { get; set; } = new();
         [JsonPropertyName("messageReactions")] public List<MessageReactionDataModel> MessageReactions { get; set; } = new();
         [JsonPropertyName("messageAttachment")] public MessageAttachmentDataModel? MessageAttachment { get; set; }
+        
+        [JsonPropertyName("isSystemMessage")] public bool IsSystemMessage { get; set; }
+        [JsonPropertyName("systemMessage")] public SystemMessagePayload? SystemMessage { get; set; }
+
 
         public class MessageStatusDataModel
         {
@@ -45,6 +49,25 @@ namespace Domain.Entities
             [JsonPropertyName("payload")] public string Payload { get; set; } = null!;
 
             [JsonPropertyName("additionalData")] public Dictionary<string, string> AdditionalData { get; set; } = new();
+        }
+        
+        public class SystemMessagePayload
+        {
+            [JsonPropertyName("type")] public SystemMessageType Type { get; set; }
+            [JsonPropertyName("additionalData")] public object AdditionalData { get; set; } = new();
+        }
+        
+        public class VideoCallStatusDataModel
+        {
+            [JsonPropertyName("isMissed")] public bool IsMissed { get; set; }
+            [JsonPropertyName("callStartTime")] public DateTime CallStartTime { get; set; }
+            [JsonPropertyName("callEndTime")] public DateTime CallEndTime { get; set; }
+            [JsonPropertyName("callerId")] public string CallerId { get; set; } = default!;
+        }
+        
+        public enum SystemMessageType
+        {
+            VideoCall = 0,
         }
     }
 }

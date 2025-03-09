@@ -34,8 +34,7 @@ public class Post : IEndpoint
             return Results.Forbid();
         }
         var token = new AgoraIO.Rtc.RtcTokenBuilder().BuildToken(agoraSettings.Value.AppId, agoraSettings.Value.AppCertificate, id, true, 0);
-        room.VideoCallIsActive = true;
-        room.VideoCallAttender =
+        room.VideoCall.Attenders =
         [
             new RoomEntity.VideoCallAttenderDataModel
             {

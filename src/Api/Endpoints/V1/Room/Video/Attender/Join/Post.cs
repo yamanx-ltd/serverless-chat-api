@@ -29,9 +29,9 @@ public class Post: IEndpoint
             return Results.Forbid();
         }
 
-        if (room.VideoCallAttender.All(q => q.UserId != apiContext.CurrentUserId))
+        if (room.VideoCall.Attenders.All(q => q.UserId != apiContext.CurrentUserId))
         {
-            room.VideoCallAttender.Add(new RoomEntity.VideoCallAttenderDataModel
+            room.VideoCall.Attenders.Add(new RoomEntity.VideoCallAttenderDataModel
             {
                 UserId = apiContext.CurrentUserId,
                 IsCreator = false
