@@ -20,7 +20,6 @@ namespace Domain.Dto.Room
 
         public List<string> BannedAttenders { get; set; } = new();
         public List<string> BannerAttenders { get; set; } = new();
-        public bool VideoCallIsActive { get; set; }
 
         public class TypingAttenderDto
         {
@@ -48,7 +47,7 @@ namespace Domain.Dto.Room
                 LastActivityAt = dto.LastActivityAt,
                 LastMessageInfo = dto.LastMessageInfo.Select(q => q.Id).ToList(),
                 Id = dto.Id,
-                Name = dto.Name,
+                Name = dto.Name
             };
         }
 
@@ -70,7 +69,7 @@ namespace Domain.Dto.Room
                 Id = entity.Id,
                 Name = entity.Name,
                 LastActivityAt = entity.LastActivityAt,
-                VideoCallIsActive = entity.VideoCallIsActive
+                VideoCallIsActive = entity.VideoCall.IsAlive()
             };
         }
 

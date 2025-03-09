@@ -1,3 +1,4 @@
+using System.Net;
 using Api.Endpoints.V1.Models.Room.Message;
 using Api.Infrastructure.Context;
 using Api.Infrastructure.Contract;
@@ -9,13 +10,15 @@ using Domain.Events.Room;
 using Domain.Extensions;
 using Domain.Repositories;
 using Domain.Services;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Endpoints.V1.Room.Message
 {
     public class Post : IEndpoint
     {
-        private static async Task<IResult> Handler([FromRoute] string id,
+        private static async Task<IResult> Handler(
+            [FromRoute] string id,
             [FromBody] MessageCreateRequestModel request,
             [FromServices] IApiContext apiContext,
             [FromServices] IRoomRepository roomRepository,
@@ -24,8 +27,10 @@ namespace Api.Endpoints.V1.Room.Message
             [FromServices] IUserRoomRepository userRoomRepository,
             [FromServices] IEventPublisher eventPublisher,
             [FromServices] IEventBusManager eventBusManager,
+            [FromServices] IErrorMessageBuilder errorMessageBuilder,
             [FromServices] IUserBanRepository banRepository,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken
+        )
         {
             var room = await roomRepository.GetRoomAsync(id, cancellationToken);
             if (room == null)
@@ -40,13 +45,26 @@ namespace Api.Endpoints.V1.Room.Message
 
             if (!room.IsGroup)
             {
-                var otherAttender = room.Attenders.FirstOrDefault(q => q != apiContext.CurrentUserId);
+                var otherAttender = room.Attenders.FirstOrDefault(q =>
+                    q != apiContext.CurrentUserId
+                );
                 if (otherAttender != null)
                 {
-                    var banInfo = await banRepository.GetBannedInfoAsync(apiContext.CurrentUserId, otherAttender,
-                        cancellationToken);
+                    var banInfo = await banRepository.GetBannedInfoAsync(
+                        apiContext.CurrentUserId,
+                        otherAttender,
+                        cancellationToken
+                    );
+
                     if (banInfo.Any())
-                        return Results.Forbid();
+                    {
+                        return Results.Problem(
+                            errorMessageBuilder.BuildProblemDetailsAsync(
+                                "ThisPersonBannedYou",
+                                HttpStatusCode.Forbidden
+                            )
+                        );
+                    }
                 }
             }
 
@@ -60,24 +78,27 @@ namespace Api.Endpoints.V1.Room.Message
                 CreatedAt = utcNow,
                 ParentId = request.ParentId,
                 MessageReactions = new List<MessageEntity.MessageReactionDataModel>(),
-                MessageStatus = room.Attenders.Where(q => q != apiContext.CurrentUserId).Select(q =>
-                    new MessageEntity.MessageStatusDataModel
+                MessageStatus = room
+                    .Attenders.Where(q => q != apiContext.CurrentUserId)
+                    .Select(q => new MessageEntity.MessageStatusDataModel
                     {
                         Status = MessageStatus.Delivered,
                         CreatedUtc = utcNow,
-                        TargetId = q
-                    }).ToList(),
+                        TargetId = q,
+                    })
+                    .ToList(),
                 RoomId = id,
                 SenderId = apiContext.CurrentUserId,
                 ThreadId = null,
-                MessageAttachment = request.Attachment == null
-                    ? null
-                    : new MessageEntity.MessageAttachmentDataModel
-                    {
-                        Type = request.Attachment.Type,
-                        Payload = request.Attachment.Payload,
-                        AdditionalData = request.Attachment.AdditionalData
-                    },
+                MessageAttachment =
+                    request.Attachment == null
+                        ? null
+                        : new MessageEntity.MessageAttachmentDataModel
+                        {
+                            Type = request.Attachment.Type,
+                            Payload = request.Attachment.Payload,
+                            AdditionalData = request.Attachment.AdditionalData,
+                        },
             };
             await messageRepository.SaveMessageAsync(messageEntity, cancellationToken);
 
@@ -86,28 +107,43 @@ namespace Api.Endpoints.V1.Room.Message
             room.LastMessageInfo = lastMessages;
             room.LastActivityAt = utcNow;
             await roomRepository.SaveRoomAsync(room, cancellationToken);
-            var roomLastActivity =
-                await roomLastActivityRepository.GetRoomLastActivityAsync(room.Id, cancellationToken);
+            var roomLastActivity = await roomLastActivityRepository.GetRoomLastActivityAsync(
+                room.Id,
+                cancellationToken
+            );
 
-            await userRoomRepository.SaveBatchAsync(room.Id, room.Attenders, roomLastActivity?.LastActivityAt, utcNow,
-                cancellationToken);
+            await userRoomRepository.SaveBatchAsync(
+                room.Id,
+                room.Attenders,
+                roomLastActivity?.LastActivityAt,
+                utcNow,
+                cancellationToken
+            );
 
-            await eventPublisher.PublishAsync(new RoomChangedEvent
-            {
-                RoomId = id,
-                ActivityAt = utcNow,
-                HasNewMessage = true,
-                SenderId = apiContext.CurrentUserId,
-                MessageId = messageId,
-                Message = messageEntity.ToDto()
-            }, cancellationToken);
-            await eventBusManager.RoomMessageAddedAsync(room.ToDto(), messageEntity.ToDto(), cancellationToken);
+            await eventPublisher.PublishAsync(
+                new RoomChangedEvent
+                {
+                    RoomId = id,
+                    ActivityAt = utcNow,
+                    HasNewMessage = true,
+                    SenderId = apiContext.CurrentUserId,
+                    MessageId = messageId,
+                    Message = messageEntity.ToDto(),
+                },
+                cancellationToken
+            );
+            await eventBusManager.RoomMessageAddedAsync(
+                room.ToDto(),
+                messageEntity.ToDto(),
+                cancellationToken
+            );
             return Results.Ok(messageId);
         }
 
         public void MapEndpoint(IEndpointRouteBuilder endpoints)
         {
-            endpoints.MapPost("/v1/rooms/{id}/messages", Handler)
+            endpoints
+                .MapPost("/v1/rooms/{id}/messages", Handler)
                 .Produces<string>(StatusCodes.Status200OK)
                 .ProducesProblem(StatusCodes.Status400BadRequest)
                 .ProducesProblem(StatusCodes.Status403Forbidden)

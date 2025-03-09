@@ -7,6 +7,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0"/>
+      <PackageReference Include="Agora-Token-Generator" Version="1.0.1" />
+      <PackageReference Include="dotAPNS.AspNetCore" Version="2.2.2" />
+      <PackageReference Include="FirebaseAdmin" Version="3.1.0" />
       <PackageReference Include="Amazon.Extensions.Configuration.SystemsManager" Version="6.0.0" />
       <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.301.14" />
       <PackageReference Include="AWSSDK.SimpleNotificationService" Version="3.7.301" />
