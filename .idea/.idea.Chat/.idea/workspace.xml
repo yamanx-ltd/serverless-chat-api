@@ -44,26 +44,25 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/891de3ffb4144a97aadc0d4b0eae131c2e00/25/c11199db/IStringLocalizerFactory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a3c9e98d301347629f5db1ced41690638800/92/67fa74fb/ApnsJwtOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ab35f7e7bef145219149dc1c4849efaa4578/48/4b61257d/StringLocalizerExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cafb801bc3e14326b2cbc3b2237874f048800/79/f89e79af/FirebaseMessaging.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb375a5c07614969844ad6b3c6f00d4590c00/9a/03759f18/Enumerable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de560a0da9244af98afcce3d570112bbd83800/46/01faa6a6/Boolean.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/df33c7fd7db04a829574707592655c01d82000/af/9625c865/Void.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e6b3fef434464fca9d114be410ea6cd73600/0e/c5ea036d/IApnsService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e6b3fef434464fca9d114be410ea6cd73600/99/8f59726f/ApnsService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eaccbc64d8a741a1a5ab79e7af9680b27e70/04/058ab050/ServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eaccbc64d8a741a1a5ab79e7af9680b27e70/4d/46563f1f/ConfigurationExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f9dffc0a33d34b3aa61c387d9e7af3c43ea00/c5/d368d25e/Results.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/45b81262c569b736355a1d418923274bf28696a4ea124914b4c4fd8b1e8b53/ApnsClient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/658ad1fa108317d78bcae889b6e4f9dd5327babb6582972f2dbeabf36dafa5/ServiceProvider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6780d13016c376c4491c5618b257d84da7eacf747ed2719783e775546b79b/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6b1dec7440915bdeee942b69d358cf915c98f1d2239586d9e73a2ca85a/ApnsResponseReason.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/80e75e31cd218d96f358856c57af836cfc396624535297066a4c06cf422bac1/DefaultCredentialProvider.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/vanenshi/Work/Projects/kisshe/serverless-chat-api/src/Api/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/vanenshi/Work/Projects/kisshe/serverless-chat-api/src/Api/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/vanenshi/Work/Projects/kisshe/serverless-chat-api/src/Api/appsettings.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/vanenshi/Work/Projects/kisshe/serverless-chat-api/src/Api/appsettings.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/vanenshi/Work/Projects/kisshe/serverless-chat-api/src/Domain/Dto/Room/RoomDto.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/vanenshi/Work/Projects/kisshe/serverless-chat-api/src/Domain/Dto/Room/RoomDto.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/vanenshi/Work/Projects/kisshe/serverless-chat-api/src/Domain/Entities/RoomEntity.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/vanenshi/Work/Projects/kisshe/serverless-chat-api/src/Domain/Entities/RoomEntity.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="SWEA" />
@@ -80,31 +79,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.Api.executor": "Run",
-    ".NET Launch Settings Profile.Api: Api:Production.executor": "Debug",
-    ".NET Launch Settings Profile.Api: Api:Sandbox.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Rebasing sandbox",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "SolutionBuilderGeneralOptionsPage",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Api.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Api: Api:Production.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.Api: Api:Sandbox.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;SolutionBuilderGeneralOptionsPage&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "GitStage.ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ]
   }
-}]]></component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Api: Api:Sandbox">
+}</component>
+  <component name="RunManager" selected=".NET Launch Settings Profile.Api: Api:Production">
     <configuration name="Api" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/Api/Api.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -177,6 +176,9 @@
       <workItem from="1740937772676" duration="6658000" />
       <workItem from="1741004294479" duration="1115000" />
       <workItem from="1741005465399" duration="3902000" />
+      <workItem from="1741545929658" duration="811000" />
+      <workItem from="1744875739762" duration="206000" />
+      <workItem from="1762794599257" duration="4541000" />
     </task>
     <servers />
   </component>
@@ -185,25 +187,23 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/Infrastructure/Services/ErrorMessageBuilder.cs</url>
-          <line>30</line>
-          <properties documentPath="$PROJECT_DIR$/src/Infrastructure/Services/ErrorMessageBuilder.cs" containingFunctionPresentation="Method 'BuildProblemDetailsAsync'">
-            <startOffsets>
-              <option value="884" />
-            </startOffsets>
-            <endOffsets>
-              <option value="932" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/src/Api/Endpoints/V1/Room/GetPaged.cs</url>
           <line>22</line>
@@ -242,6 +242,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/45b81262c569b736355a1d418923274bf28696a4ea124914b4c4fd8b1e8b53/ApnsClient.cs</url>
+          <line>128</line>
+          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/45b81262c569b736355a1d418923274bf28696a4ea124914b4c4fd8b1e8b53/ApnsClient.cs" containingFunctionPresentation="Method 'SendAsync'">
+            <startOffsets>
+              <option value="4746" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4759" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

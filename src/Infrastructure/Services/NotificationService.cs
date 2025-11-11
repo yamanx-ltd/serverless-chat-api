@@ -1,6 +1,5 @@
 using Domain.Dto.Notifier;
 using Domain.Entities;
-using Domain.Enum;
 using Domain.Repositories;
 using Domain.Services;
 using dotAPNS;

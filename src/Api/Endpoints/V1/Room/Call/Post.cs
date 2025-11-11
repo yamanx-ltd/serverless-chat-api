@@ -111,21 +111,6 @@ public class Post : IEndpoint
             }
         }
 
-        // TODO: Remove this condition when we support android devices
-        #region AndroidDeviceNotSupported
-        var userDevice = await userDeviceRepository.GetUserActiveDeviceAsync(
-            userId: callee,
-            cancellationToken
-        );
-
-        if (userDevice is { ApnToken: null })
-        {
-            return Results.Problem(
-                errorMessageBuilder.BuildProblemDetailsAsync("CallNotSupported")
-            );
-        }
-        #endregion
-
         room.VideoCall = new()
         {
             CalledAt = DateTime.UtcNow,
